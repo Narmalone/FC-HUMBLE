@@ -6,8 +6,13 @@ class loader extends Phaser.Scene {
     //CHARGEMENT DES ASSETS, ET CREATION D'UN CHARGEMENT//
     preload(){
 
-        this.load.image('mouse', 'assets/img/mouse.png');
+        
         this.load.image('tileMap', 'assets/img/platform.png');
+
+        //Buttons
+        this.load.image('redB', 'assets/img/red_button.png');
+        this.load.image('blueB', 'assets/img/blue_button.png');
+        this.load.image('greenB', 'assets/img/green_button.png');
     }
 
     create(){

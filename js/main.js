@@ -12,7 +12,7 @@ var config = {
             debug: false
         }
     },
-    scene: [loader, mainMenu, level_1]
+    scene: [loader, mainMenu , level_1 , UI]
 };
 
 

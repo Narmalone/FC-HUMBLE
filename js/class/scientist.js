@@ -1,4 +1,4 @@
-class MunBox extends Phaser.Physics.Arcade.Sprite{
+class Scientist extends Phaser.Physics.Arcade.Sprite{
     constructor(scene,x,y,nom){
         super(scene,x,y,nom);
         scene.add.existing(this);

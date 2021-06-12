@@ -10,7 +10,8 @@ class mainMenu extends Phaser.Scene{
         this.textPlay.setInteractive();
         this.textPlay.on('pointerup', function(pointer){
             this.scene.stop();
-            this.scene.start('level_1')
+            this.scene.start('level_1');
+            this.scene.launch('uiScene');
         }, this);
     }
 }
