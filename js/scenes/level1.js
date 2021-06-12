@@ -5,7 +5,7 @@ class level_1 extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('IM_mouse','assets/mouse.png');
+        this.load.image('IM_mouse','assets/img/mouse.png');
     }
 
        
@@ -16,8 +16,6 @@ class level_1 extends Phaser.Scene {
         // const platformTiles = map.addTilesetImage('tilemap','platform');
         // var platform = map.createLayer('platformer',platformTiles,0,0);
         // platform.setCollisionByExclusion(-1, true);
-
-        console.log(map);
         this.player= new mouse (this,50,50,'IM_mouse','Z','Q','D');
     }
 
