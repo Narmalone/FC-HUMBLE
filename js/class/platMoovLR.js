@@ -6,17 +6,26 @@ class platMoovLR extends Phaser.GameObjects.Sprite{
         this.scene = scene;
         this.body.allowGravity = false;
         this.body.setVelocityX(0);
-
-        this.platState = 0;
         this.dir = 1;
         this.clicked = false;
-
+        this.body.setImmovable(true)
+        scene.physics.add.collider(this, scene.platform, function(obj, plat){
+            if(obj.body.blocked.right){
+                obj.body.setVelocityX(0);
+                console.log('heyheyhey');
+                obj.dir = -1;
+            }
+            if(obj.body.blocked.left){
+                obj.body.setVelocityX(0);
+                console.log('heyheyhey');
+                obj.dir = 1;
+            }
+        });
     }
 
     Clicked(){
         this.clicked = true;
         this.updateBlue();
-        console.log('kk')
     }
 
     updateBlue(){
@@ -25,8 +34,6 @@ class platMoovLR extends Phaser.GameObjects.Sprite{
             
             this.body.setVelocityX(300 * this.dir);
         }
-        
-       
 
     }
 }

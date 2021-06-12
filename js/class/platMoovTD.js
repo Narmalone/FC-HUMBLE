@@ -6,26 +6,33 @@ class platMoovTD extends Phaser.GameObjects.Sprite{
         this.scene = scene;
         this.body.allowGravity = false;
         this.body.setVelocityX(0);
-
-        this.platState = 0;
-
+        this.clicked = false
+        this.dir = 1;
+        this.body.setImmovable(true)
+        scene.physics.add.collider(this, scene.platform ,function(obj, plat){
+            if(obj.body.blocked.top){
+                obj.body.setVelocityY(0);
+                console.log('en haut');
+                obj.dir = 1;
+            }
+            if(obj.body.blocked.down){
+                obj.body.setVelocityY(0);
+                console.log('en bas');
+                obj.dir = -1;
+            }
+        });
     }
 
     Clicked(){
-        
+        this.clicked = true
+        this.updateRed();
     }
 
     updateRed(){
-        console.log('upd')
-        this.body.setVelocityY(120)
-        if(this.body.blocked.right){
-            this.body.setVelocityX(0)
-            this.platState ++;
+        console.log(55)
+        if(this.clicked == true){
+            
+            this.body.setVelocityY(300 * this.dir);
         }
-        else if(this.platState == 1){
-            this.body.setVelocityY(-120)
-        }
-       
-
     }
 }

@@ -31,6 +31,10 @@ class mouse extends Phaser.GameObjects.Sprite{
         if (this.keys.space.isDown && this.body.blocked.down){
             this.body.setVelocityY(-250);
         }
+        if(this.body.velocity.x > 500){
+            this.body.velocity.x = 500
+        }
+        console.log(this.body.velocity.x)
         
     }
 }

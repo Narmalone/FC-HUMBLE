@@ -19,10 +19,10 @@ class level_1 extends Phaser.Scene {
         const map = this.make.tilemap({key:'level_1'});
 
         const platformTiles = map.addTilesetImage('proto','platform');
-        var platform = map.createLayer('platformer',platformTiles,0,0);
-        platform.setCollisionByExclusion(-1, true);
+        this.platform = map.createLayer('platformer',platformTiles,0,0);
+        this.platform.setCollisionByExclusion(-1, true);
         this.player= new mouse (this,50,2000,'IM_mouse','Z','Q','D');
-        this.physics.add.collider(this.player, platform);
+        this.physics.add.collider(this.player, this.platform);
         
         //camera
         this.cameras.main.setZoom(0.85);
@@ -40,20 +40,10 @@ class level_1 extends Phaser.Scene {
         var platformesObject_1 = map.getObjectLayer('platMoovLRSpawn')['objects'];
         platformesObject_1.forEach(platformesObject_1=>{
             this.objplat_1 = new platMoovLR(this, platformesObject_1.x, platformesObject_1.y, 'mouse').setScale(0.4);
+            this.objplat_1.immovable = true;
             this.platformes_1.push(this.objplat_1);
         });
-        this.physics.add.collider(this.platformes_1, platform, function(obj, plat){
-            if(obj.body.blocked.right){
-                obj.body.setVelocityX(0);
-                console.log('heyheyhey');
-                obj.dir = -1;
-            }
-            if(obj.body.blocked.left){
-                obj.body.setVelocityX(0);
-                console.log('heyheyhey');
-                obj.dir = 1;
-            }
-        });
+        
         
 
         //HAUT BAS//
@@ -63,7 +53,10 @@ class level_1 extends Phaser.Scene {
             this.objplat_2 = new platMoovTD(this, platformesObject_2.x, platformesObject_2.y, 'mouse').setScale(0.4);
             this.platformes_2.push(this.objplat_2)
         })
-        this.physics.add.collider(this.objplat_2, platform);
+        
+
+        this.physics.add.collider(this.player, this.platformes_1)
+        this.physics.add.collider(this.player, this.platformes_2)
 
 
         // BOUTONS//
