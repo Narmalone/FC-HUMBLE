@@ -5,6 +5,8 @@ class mouse extends Phaser.GameObjects.Sprite{
         this.scene.physics.add.existing(this);
         this.scene.add.existing(this);
 
+        this.scene = scene;
+
         this.keys = scene.input.keyboard.addKeys({
             left: gauche,
             right: droite,
@@ -34,7 +36,18 @@ class mouse extends Phaser.GameObjects.Sprite{
         if(this.body.velocity.x > 500){
             this.body.velocity.x = 500
         }
-        console.log(this.body.velocity.x)
+        var voidLayer = this.scene.platform.getTileAtWorldXY(this.x + 63 , this.y);
+        if(voidLayer != null){
+            if (voidLayer.index != -1) {
+                this.x -= 5
+            }
+        }
+        var voidLayer2 = this.scene.platform.getTileAtWorldXY(this.x - 63 , this.y);
+        if(voidLayer2 != null){
+            if (voidLayer2.index != -1) {
+                this.x += 5
+            }
+        }
         
     }
 }
