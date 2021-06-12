@@ -24,6 +24,9 @@ class level_1 extends Phaser.Scene {
         // this.cameras.main.setZoom(0.1);
         this.physics.world.setBounds(0, 0, 25600, 25600);
 
+
+        this.physics.add.collider(this.moovLR, platform)
+
     }
 
     update(){
