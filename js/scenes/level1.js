@@ -6,4 +6,8 @@ class level_1 extends Phaser.Scene {
     create(){
         console.log('dans le niveau 1')
     }
+
+    update(){
+        
+    }
 }
