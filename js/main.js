@@ -1,21 +1,21 @@
+// configuration du jeu//
 
 
-//configuration du jeu
 var config = {
     type: Phaser.AUTO,
-    width: 1905,
-    height: 1060,
+    width: window.innerWidth,
+    height: window.innerHeight,
     backgroundColor: '#000000',
-    parent: 'phaser-example',
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 0},
+            gravity: {y: 500},
             debug: false
         }
     },
-    scene: [ ]
+    scene: [loader, mainMenu]
 };
 
 
+// CREATION DU JEU//
 var game = new Phaser.Game(config);
