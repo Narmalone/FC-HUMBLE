@@ -6,17 +6,19 @@ class UI extends Phaser.Scene {
     create(){
 
         //buttons
+        //red
         this.redButton = this.add.sprite(300,550, 'redB');
         this.redButton.setInteractive();
         this.redButton.on('pointerdown', function () {
             console.log('red')
         }, this);
-
+        //blue
         this.blueButton = this.add.sprite(600,550, 'blueB');
         this.blueButton.setInteractive();
         this.blueButton.on('pointerdown', function () {
             console.log('blue')
         }, this);
+        //green
         this.greenButton = this.add.sprite(908,550, 'greenB');
         this.greenButton.setInteractive();
         this.greenButton.on('pointerdown', function () {
