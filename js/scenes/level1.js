@@ -9,7 +9,7 @@ class level_1 extends Phaser.Scene {
         this.load.spritesheet('SP_comm','assets/spriteSheet/symbol_proto.png',{ frameWidth: 90, frameHeight: 90 });
     }
 
-       
+
 
     create(){
         const map = this.make.tilemap({key:'level_1'});
@@ -23,7 +23,7 @@ class level_1 extends Phaser.Scene {
         this.cameras.main.startFollow(this.player.container);
         // this.cameras.main.setZoom(0.1);
         this.physics.world.setBounds(0, 0, 25600, 25600);
-       
+
     }
 
     update(){
