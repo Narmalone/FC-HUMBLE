@@ -1,3 +1,3 @@
-class mouse {
-    
+class mouse extends Phaser.GameObjects.Sprite{
+
 }
