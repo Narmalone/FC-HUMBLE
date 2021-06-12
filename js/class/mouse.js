@@ -1,5 +1,5 @@
 class mouse extends Phaser.GameObjects.Sprite{
-    constructor(scene, x,y,texture,haut,gauche,droite,first,sec,third){
+    constructor(scene, x,y,texture,haut,gauche,droite,first,sec,third,fourth){
         super(scene,65,65,texture);
 
         this.premiereCommande=this.scene.add.sprite(-30,-25,'SP_comm');
@@ -20,7 +20,8 @@ class mouse extends Phaser.GameObjects.Sprite{
             space: haut,
             one:first,
             two:sec,
-            three:third
+            three:third,
+            four:fourth
         });
 
         this.scene.physics.add.existing(this);
@@ -37,7 +38,7 @@ class mouse extends Phaser.GameObjects.Sprite{
         this.container.body.setCollideWorldBounds(true);
         this.container.body.setMaxSpeed(900);
 
-        this.symboleCooldownEvent = new Phaser.Time.TimerEvent({ delay: 4000 });
+        this.symboleCooldownEvent = new Phaser.Time.TimerEvent({ delay: 1500 });
         this.scene.time.addEvent(this.symboleCooldownEvent);
 
         this.scene.anims.create({
@@ -61,9 +62,17 @@ class mouse extends Phaser.GameObjects.Sprite{
             repeat: -1
         });
 
+        this.scene.anims.create({
+            key: 'quatro',
+            frames: this.scene.anims.generateFrameNames('SP_comm', { frames: [ 3 ] }),
+            frameRate: 1,
+            repeat: -1
+        });
+
         this.unSpam=false;
         this.deuxSpam=false;
         this.troisSpam=false;
+        this.quatreSpam=false;
 
         this.respawnX;
         this.respawnY;
@@ -151,6 +160,17 @@ class mouse extends Phaser.GameObjects.Sprite{
 
         if (this.keys.three.isUp){
             this.troisSpam=false;
+        }
+
+        if (this.keys.four.isDown){
+            if (this.quatreSpam==false){
+                this.apparitionSymbole('quatro');
+                this.quatreSpam=true;
+            }
+        }
+
+        if (this.keys.four.isUp){
+            this.quatreSpam=false;
         }
         
     }

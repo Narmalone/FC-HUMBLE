@@ -17,7 +17,7 @@ class level_1 extends Phaser.Scene {
         const platformTiles = map.addTilesetImage('proto','platform');
         var platform = map.createLayer('platformer',platformTiles,0,0);
         platform.setCollisionByExclusion(-1, true);
-        this.player= new mouse (this,50,50,'IM_mouse','Z','Q','D','ONE','TWO','THREE');
+        this.player= new mouse (this,50,50,'IM_mouse','SPACE','Q','D','UP','DOWN','RIGHT','LEFT');
 
         this.physics.add.collider(this.player.container, platform);
         this.cameras.main.startFollow(this.player.container);
