@@ -7,7 +7,8 @@ class loader extends Phaser.Scene {
     preload(){
 
         this.load.image('mouse', 'assets/img/mouse.png');
-        this.load.image('tileMap', 'assets/img/platform.png');
+        this.load.image('platform', 'assets/img/platform.png');
+        this.load.tilemapTiledJSON('level_1','assets/Tile/level_1.json');
     }
 
     create(){
