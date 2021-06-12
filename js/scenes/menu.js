@@ -11,7 +11,6 @@ class mainMenu extends Phaser.Scene{
         this.textPlay.on('pointerup', function(pointer){
             this.scene.stop();
             this.scene.start('level_1')
-            console.log('dans le niv 1')
         }, this);
     }
 }
