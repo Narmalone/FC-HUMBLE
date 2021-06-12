@@ -11,6 +11,8 @@ class loader extends Phaser.Scene {
         this.load.image('blueB', 'assets/img/blue_button.png');
         this.load.image('greenB', 'assets/img/green_button.png');
         this.load.image('tileMap', 'assets/img/platform.png');
+        this.load.image('platform', 'assets/img/platform.png');
+        this.load.tilemapTiledJSON('level_1','assets/Tile/level_1.json');
     }
 
     create(){

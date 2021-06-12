@@ -14,6 +14,11 @@ class mouse extends Phaser.GameObjects.Sprite{
         this.body.setAllowDrag(true);
         this.body.setDrag(1500, 0);
         this.body.setCollideWorldBounds(true);
+
+        // this.container= this.add.container()
+
+        this.respawnX;
+        this.respawnY;
     }
 
     update(){
@@ -23,7 +28,7 @@ class mouse extends Phaser.GameObjects.Sprite{
         if (this.keys.right.isDown){
             this.body.setVelocityX(250);
         }
-        if (this.keys.space.isDown && this.body.touching.down){
+        if (this.keys.space.isDown && this.body.blocked.down){
             this.body.setVelocityY(-250);
         }
         
