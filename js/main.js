@@ -1,6 +1,6 @@
 // configuration du jeu//
 
-
+var jtebz;
 var config = {
     type: Phaser.AUTO,
     width: window.innerWidth,
