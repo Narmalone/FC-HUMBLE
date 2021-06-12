@@ -51,12 +51,25 @@ class level_1 extends Phaser.Scene {
         var platformesObject_2 = map.getObjectLayer('platMoovTDSpawn')['objects'];
         platformesObject_2.forEach(platformesObject_2=>{
             this.objplat_2 = new platMoovTD(this, platformesObject_2.x, platformesObject_2.y, 'mouse').setScale(0.4);
-            this.platformes_2.push(this.objplat_2)
+            this.platformes_2.push(this.objplat_2);
+        });
+
+        this.checkPoints = [];
+        var checkPoint = map.getObjectLayer('checkPoint')['objects'];
+        checkPoint.forEach(cp=>{
+            this.cp = this.physics.add.image(cp.x , cp.y, '');
+            this.cp.body.height = 100
+            this.checkPoints.push(this.cp)
         })
         
 
-        this.physics.add.collider(this.player, this.platformes_1)
-        this.physics.add.collider(this.player, this.platformes_2)
+        this.physics.add.collider(this.player, this.platformes_1);
+        this.physics.add.collider(this.player, this.platformes_2);
+        this.physics.add.collider(this.checkPoints, this.platform);
+        this.physics.add.overlap(this.player, this.checkPoints, function(p , cp){
+            p.respawnX = cp.x;
+            p.respawnY = cp.y;
+        });
 
 
         // BOUTONS//

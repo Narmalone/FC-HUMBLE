@@ -21,6 +21,10 @@ class mouse extends Phaser.GameObjects.Sprite{
 
         this.respawnX;
         this.respawnY;
+
+        
+
+    
     }
 
     update(){
@@ -47,6 +51,10 @@ class mouse extends Phaser.GameObjects.Sprite{
             if (voidLayer2.index != -1) {
                 this.x += 5
             }
+        }
+        if(this.x < this.scene.cameras.main.scrollX -228){
+            this.x = this.respawnX;
+            this.y = this.respawnY;
         }
         
     }
