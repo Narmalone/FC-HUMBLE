@@ -1,5 +1,5 @@
 // configuration du jeu//
-
+var oui;
 
 var config = {
     type: Phaser.AUTO,
