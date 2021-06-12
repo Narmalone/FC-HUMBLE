@@ -12,7 +12,8 @@ class level_1 extends Phaser.Scene {
 
     create(){
 
-        this.fond = this.add.tileSprite(0,2500,1920,1080, 'fond').setOrigin(0.5,0.5);
+        
+        this.fond = this.add.tileSprite(0,2650,1920,1080, 'fond').setOrigin(0.5,0.5).setScale(1);
         console.log(this.fond)
 
         const map = this.make.tilemap({key:'level_1'});
@@ -27,10 +28,30 @@ class level_1 extends Phaser.Scene {
         this.cameras.main.setZoom(0.85);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setLerp(0, 1);
+        this.cameras.main.setBounds(0,-200);
         this.physics.world.setBounds(0, 0, 25600, 25600);
             
         //player souris
         this.scientist = new Scientist(this,0,0);
+        
+        this.redButton = this.add.sprite(game.config.width /2 ,game.config.height / 1.2, 'redB').setScale(0.5).setOrigin(0.5,0.5).setScrollFactor(0);
+        this.redButton.setInteractive();
+        this.redButton.on('pointerdown', function () {
+            console.log('red');
+            
+        }, this);
+        //blue
+        this.blueButton = this.add.sprite(game.config.width /2.6,game.config.height / 1.2, 'blueB').setScale(0.5).setOrigin(0.5,0.5).setScrollFactor(0);
+        this.blueButton.setInteractive();
+        this.blueButton.on('pointerdown', function () {
+            console.log('blue');
+        }, this);
+        //green
+        this.greenButton = this.add.sprite(game.config.width / 1.625,game.config.height / 1.2, 'greenB').setScale(0.5).setOrigin(0.5,0.5).setScrollFactor(0);
+        this.greenButton.setInteractive();
+        this.greenButton.on('pointerdown', function () {
+            console.log('green');
+        }, this);
 
     }
 
