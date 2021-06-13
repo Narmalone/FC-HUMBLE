@@ -61,6 +61,7 @@ class level_1 extends Phaser.Scene {
             this.objplat_3 = new platDisp(this, platformesObject_3.x, platformesObject_3.y, 'mouse').setScale(0.4);
             this.objplat_3.alternate = platformesObject_3.properties[0].value;
             console.log(platformesObject_3.properties[0].value);
+            this.objplat_3.Clicked();
             this.platformes_3.push(this.objplat_3);
         })
 
@@ -96,11 +97,7 @@ class level_1 extends Phaser.Scene {
         this.blueButton.setInteractive();
         this.blueButton.on('pointerdown', function () {
             console.log('blue');
-            /*platformesObject_1.forEach(platformesObject_1=>{
-                platformesObject_1.setTintFill(0xffffff)
-                console.log(platformesObject_1);
-                
-            })*/
+            
             for(var i =0; i < this.platformes_1.length ; i++){
                 this.platformes_1[i].Clicked();
             }
@@ -134,7 +131,6 @@ class level_1 extends Phaser.Scene {
         }
 
        if(this.player.y > 3122)this.cameras.main.setLerp(0, 0);
-       console.log(this.player.y);
         
     }
 }
