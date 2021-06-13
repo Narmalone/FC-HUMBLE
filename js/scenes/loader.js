@@ -14,6 +14,20 @@ class loader extends Phaser.Scene {
         this.load.image('platform', 'assets/img/platform.png');
         this.load.image('fond', 'assets/img/fond.png');
 
+        //spritesSheets
+        this.load.spritesheet('SP_comm', 
+        'assets/spriteSheet/arrow.png',
+        { frameWidth: 90, frameHeight: 90}
+        );
+        this.load.spritesheet('button', 
+        'assets/spriteSheet/buttons.png',
+        { frameWidth: 400, frameHeight: 300}
+        );
+        this.load.spritesheet('chara', 
+        'assets/spriteSheet/character.png',
+        { frameWidth: 128, frameHeight: 128}
+        );
+
         //json
         this.load.tilemapTiledJSON('level_1','assets/Tile/level_1.json');
         this.load.json('jsonData', 'json/camera.json');
