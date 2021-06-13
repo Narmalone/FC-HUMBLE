@@ -60,6 +60,7 @@ class level_1 extends Phaser.Scene {
             this.objplat_3 = new platDisp(this, platformesObject_3.x, platformesObject_3.y, 'mouse').setScale(0.4);
             this.objplat_3.alternate = platformesObject_3.properties[0].value;
             console.log(platformesObject_3.properties[0].value);
+            this.objplat_3.Clicked();
             this.platformes_3.push(this.objplat_3);
         })
 
@@ -133,7 +134,6 @@ class level_1 extends Phaser.Scene {
         }
 
        if(this.player.y > 3122)this.cameras.main.setLerp(0, 0);
-       console.log(this.player.y);
         
     }
 }

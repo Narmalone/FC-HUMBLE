@@ -11,8 +11,7 @@ class platDisp extends Phaser.GameObjects.Sprite{
         // this.setVisible(false);
         this.alternate;
         scene.physics.add.collider(this, scene.player);
-        this.Clicked();
-        this.updateRed();
+        
     }
 
     Clicked(){
