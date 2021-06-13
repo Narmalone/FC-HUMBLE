@@ -96,11 +96,7 @@ class level_1 extends Phaser.Scene {
         this.blueButton.setInteractive();
         this.blueButton.on('pointerdown', function () {
             console.log('blue');
-            /*platformesObject_1.forEach(platformesObject_1=>{
-                platformesObject_1.setTintFill(0xffffff)
-                console.log(platformesObject_1);
-                
-            })*/
+            
             for(var i =0; i < this.platformes_1.length ; i++){
                 this.platformes_1[i].Clicked();
             }
