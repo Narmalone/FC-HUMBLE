@@ -12,9 +12,8 @@ var config = {
             debug: true
         }
     },
-    scene: [loader, mainMenu, level_1]
-};
-
+    scene: [loader, mainMenu, level_1 , UI]
+}
 
 // CREATION DU JEU//
 var game = new Phaser.Game(config);

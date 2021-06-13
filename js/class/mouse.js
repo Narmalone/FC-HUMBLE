@@ -6,6 +6,8 @@ class mouse extends Phaser.GameObjects.Sprite{
         this.deuxiemeCommande=this.scene.add.sprite(65,-25,'SP_comm');
         this.troisiemeCommande=this.scene.add.sprite(160,-25,'SP_comm');
 
+        this.scene = scene;
+
         this.keys = scene.input.keyboard.addKeys({
             left: gauche,
             right: droite,
@@ -30,6 +32,10 @@ class mouse extends Phaser.GameObjects.Sprite{
 
         this.respawnX;
         this.respawnY;
+
+        
+
+    
     }
 
     apparitionSymbole(){
@@ -49,6 +55,33 @@ class mouse extends Phaser.GameObjects.Sprite{
         if (this.keys.one.isDown){
             console.log('sippin tea in your hood wtf is up you buttercup');
         }
+        if(this.body.velocity.x > 500){
+            this.body.velocity.x = 500
+        }
+        var voidLayer = this.scene.platform.getTileAtWorldXY(this.x + 63 , this.y);
+        if(voidLayer != null){
+            if (voidLayer.index != -1) {
+                this.x -= 5
+            }
+        }
+        var voidLayer2 = this.scene.platform.getTileAtWorldXY(this.x - 63 , this.y);
+        if(voidLayer2 != null){
+            if (voidLayer2.index != -1) {
+                this.x += 5
+            }
+        }
+        if(this.x < this.scene.cameras.main.scrollX -228){
+            this.x = this.respawnX;
+            this.y = this.respawnY;
+        }
+
+        if(this.x > this.scene.cameras.main.scrollY +1200){
+            this.x = this.respawnX;
+            this.y = this.respawnY;
+            this.cameras.main.setLerp(0, 1);
+            
+        }
+        
         
     }
 }
