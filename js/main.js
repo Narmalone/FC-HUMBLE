@@ -13,8 +13,7 @@ var config = {
         }
     },
     scene: [loader, mainMenu, level_1 , UI]
-};
-
+}
 
 // CREATION DU JEU//
 var game = new Phaser.Game(config);

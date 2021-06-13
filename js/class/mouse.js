@@ -56,6 +56,14 @@ class mouse extends Phaser.GameObjects.Sprite{
             this.x = this.respawnX;
             this.y = this.respawnY;
         }
+
+        if(this.x > this.scene.cameras.main.scrollY +1200){
+            this.x = this.respawnX;
+            this.y = this.respawnY;
+            this.cameras.main.setLerp(0, 1);
+            
+        }
+        
         
     }
 }

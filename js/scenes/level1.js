@@ -21,7 +21,7 @@ class level_1 extends Phaser.Scene {
         const platformTiles = map.addTilesetImage('proto','platform');
         this.platform = map.createLayer('platformer',platformTiles,0,0);
         this.platform.setCollisionByExclusion(-1, true);
-        this.player= new mouse (this,50,2000,'IM_mouse','Z','Q','D');
+        this.player = new mouse (this,150,2000,'IM_mouse','Z','Q','D');
         this.physics.add.collider(this.player, this.platform);
         
         //camera
@@ -53,6 +53,16 @@ class level_1 extends Phaser.Scene {
             this.objplat_2 = new platMoovTD(this, platformesObject_2.x, platformesObject_2.y, 'mouse').setScale(0.4);
             this.platformes_2.push(this.objplat_2);
         });
+
+        this.platformes_3 = [];
+        var platformesObject_3 = map.getObjectLayer('platDispSpawn')['objects'];
+        platformesObject_3.forEach(platformesObject_3=>{
+            this.objplat_3 = new platDisp(this, platformesObject_3.x, platformesObject_3.y, 'mouse').setScale(0.4);
+            this.objplat_3.alternate = platformesObject_3.properties[0].value;
+            console.log(platformesObject_3.properties[0].value);
+            this.platformes_3.push(this.objplat_3);
+        })
+
 
         this.checkPoints = [];
         var checkPoint = map.getObjectLayer('checkPoint')['objects'];
@@ -100,17 +110,15 @@ class level_1 extends Phaser.Scene {
         this.greenButton.setInteractive();
         this.greenButton.on('pointerdown', function () {
             console.log('green');
+            for(var i =0; i < this.platformes_3.length ; i++){
+                this.platformes_3[i].Clicked();
+            }
         }, this);
 
     }
 
     update(){
-        
-        this.objplat_2.updateRed();
-        this.objplat_1.updateBlue();
-    }
 
-    update(){
         this.cameras.main.scrollX += 1; 
 
 
@@ -119,5 +127,13 @@ class level_1 extends Phaser.Scene {
         this.fond.tilePositionY = this.cameras.main.scrollY * 0;
 
         this.player.update();
+
+        for(var i =0; i < this.platformes_3.length ; i++){
+            this.platformes_3[i].updateRed();
+        }
+
+       if(this.player.y > 3122)this.cameras.main.setLerp(0, 0);
+       console.log(this.player.y);
+        
     }
 }
