@@ -6,9 +6,10 @@ class level_1 extends Phaser.Scene {
 
     preload(){
         this.load.image('IM_mouse','assets/img/mouse.png');
+        this.load.spritesheet('SP_comm','assets/spriteSheet/symbol_proto.png',{ frameWidth: 90, frameHeight: 90 });
     }
 
-       
+
 
     create(){
 
